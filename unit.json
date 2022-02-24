@@ -1,0 +1,26 @@
+{
+    "listeners": {
+        "*:8000": {
+            "pass": "routes"
+        }
+    },
+    "routes": [
+        {
+            "match": {
+                "uri": "/wasm"
+            },
+            "action": {
+                "pass": "applications/wasm"
+            }
+        }
+    ],
+    "applications": {
+        "wasm": {
+            "type": "external",
+            "working_directory": "/apps/unit-wasm/",
+            "executable": "./unit-wasm.js"
+        }
+    },
+    "access_log": "/var/log/access.log"
+  
+}
